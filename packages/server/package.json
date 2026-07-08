@@ -1,0 +1,36 @@
+{
+  "name": "@tspanelio/server",
+  "private": true,
+  "description": "Webserver with websockets which handels the connection to the teamspeak serverquery",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "build": "node --check app.js"
+  },
+  "author": "J.F.",
+  "license": "ISC",
+  "dependencies": {
+    "busboy": "^0.3.1",
+    "commander": "^6.2.1",
+    "cookie": "^0.4.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.7.0",
+    "socket.io": "^4.5.4",
+    "ts3-nodejs-library": "^3.5.1",
+    "winston": "^3.2.1"
+  },
+  "pkg": {
+    "scripts": "utils/*.js",
+    "assets": "../ui/dist/**/**/*"
+  },
+  "bin": "app.js",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

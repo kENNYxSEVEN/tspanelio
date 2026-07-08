@@ -1,0 +1,33 @@
+{
+  "name": "tspanelio",
+  "description": "Unofficial modern ServerQuery web panel for TeamSpeak servers",
+  "version": "1.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently --kill-others --names \"UI,SERVER\" -c \"bgGreen.black,bgMagenta.black\" \"npm run dev:ui\" \"npm run dev:server\"",
+    "dev:ui": "npm run serve --workspace=@tspanelio/ui",
+    "dev:server": "npm run dev --workspace=@tspanelio/server",
+    "build": "npm run build:ui && npm run build:server",
+    "build:ui": "npm run build --workspace=@tspanelio/ui",
+    "build:server": "npm run build --workspace=@tspanelio/server",
+    "build:release": "npm run build:ui && npm run build:server",
+    "package:executables": "node scripts/package-executables.mjs",
+    "package:linux": "node scripts/package-executables.mjs --target linux",
+    "package:macos": "node scripts/package-executables.mjs --target macos",
+    "package:windows": "node scripts/package-executables.mjs --target windows",
+    "server:start": "npm run start --workspace=@tspanelio/server",
+    "ui:serve": "npm run serve --workspace=@tspanelio/ui"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "devDependencies": {
+    "@yao-pkg/pkg": "^6.21.0",
+    "autoprefixer": "^10.5.2",
+    "concurrently": "^6.2.0"
+  }
+}
